@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AstAgency — AI-Driven Solutions</title>
-  <meta name="description" content="AstAgency — building intelligent solutions at the intersection of AI and modern web technologies.">
+  <title>SA-Agent — AI-ассистент для системного аналитика</title>
+  <meta name="description" content="SA-Agent — desktop AI-ассистент для системного аналитика от AstAgency. Помогает превращать встречи, голосовые описания и сырые задачи в BRD, ТЗ и структурированный проектный контекст.">
 
   <!-- Distinctive fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,6 +41,7 @@
 
       /* Spacing */
       --space-section: 6rem;
+      --container-width: 1100px;
     }
 
     /* ============================================
@@ -146,7 +147,7 @@
        LAYOUT
        ============================================ */
     .container {
-      max-width: 1000px;
+      max-width: var(--container-width);
       margin: 0 auto;
       padding: 0 2rem;
     }
@@ -165,7 +166,7 @@
 
     .header-inner {
       display: flex; align-items: center; justify-content: space-between;
-      max-width: 1000px; margin: 0 auto; padding: 0 2rem;
+      max-width: var(--container-width); margin: 0 auto; padding: 0 2rem;
     }
 
     .logo {
@@ -210,7 +211,16 @@
       padding-top: 4rem;
     }
 
-    .hero-content { }
+    .hero-content {
+      padding-top: 4.5rem;
+    }
+
+    .hero-content,
+    .section > .container,
+    .cta-section > .container,
+    footer .container {
+      width: 100%;
+    }
 
     .hero-badge {
       display: inline-flex;
@@ -260,6 +270,39 @@
       color: var(--text-secondary);
       max-width: 580px;
       margin-bottom: 2.5rem;
+    }
+
+    .hero-meta {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 3rem;
+      max-width: var(--container-width);
+    }
+
+    .hero-stat {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 1rem;
+      padding: 1.2rem 1.25rem;
+      backdrop-filter: blur(4px);
+    }
+
+    .hero-stat-label {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 0.45rem;
+    }
+
+    .hero-stat strong {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: var(--weight-medium);
+      color: var(--text-primary);
     }
 
     .hero-actions {
@@ -353,6 +396,97 @@
       gap: 1.5rem;
     }
 
+    .details-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+
+    .detail-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 1rem;
+      padding: 2rem;
+      backdrop-filter: blur(4px);
+    }
+
+    .detail-card h3 {
+      font-family: var(--font-display);
+      font-weight: var(--weight-black);
+      font-size: 1.1rem;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+
+    .detail-card p,
+    .detail-card li,
+    .workflow-step p {
+      font-family: var(--font-body);
+      font-weight: var(--weight-thin);
+      font-size: 0.98rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .detail-list {
+      list-style: none;
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    .detail-list li {
+      position: relative;
+      padding-left: 1.1rem;
+    }
+
+    .detail-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.72rem;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent-1);
+      box-shadow: 0 0 12px rgba(0, 212, 255, 0.35);
+    }
+
+    .workflow-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .workflow-step {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      min-height: 100%;
+    }
+
+    .workflow-step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 999px;
+      margin-bottom: 1rem;
+      background: rgba(0, 212, 255, 0.08);
+      border: 1px solid rgba(0, 212, 255, 0.16);
+      color: var(--accent-1);
+      font-family: var(--font-display);
+      font-weight: var(--weight-black);
+    }
+
+    .workflow-step h3 {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      margin-bottom: 0.75rem;
+    }
+
     .product-card {
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
@@ -406,7 +540,7 @@
        ============================================ */
     .stack-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 1rem;
     }
 
@@ -506,6 +640,9 @@
       .hero h1 { font-size: clamp(2.2rem, 10vw, 3.5rem); }
       .nav-links { display: none; }
       .products-grid { grid-template-columns: 1fr; }
+      .details-grid { grid-template-columns: 1fr; }
+      .workflow-grid { grid-template-columns: 1fr; }
+      .hero-meta { grid-template-columns: 1fr; }
       .stack-grid { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
@@ -520,8 +657,9 @@
     <div class="header-inner">
       <a href="/" class="logo">Ast<span>Agency</span></a>
       <ul class="nav-links">
-        <li><a href="#products">Продукты</a></li>
-        <li><a href="#stack">Технологии</a></li>
+        <li><a href="#product">О продукте</a></li>
+        <li><a href="#workflow">Как это работает</a></li>
+        <li><a href="#advantages">Преимущества</a></li>
         <li><a href="#contact">Контакты</a></li>
       </ul>
     </div>
@@ -532,27 +670,42 @@
     <div class="container hero-content">
       <div class="hero-badge fade-in stagger-1">
         <span class="hero-badge-dot"></span>
-        AI-Driven Development
+        Early Access / In Development
       </div>
 
       <h1 class="fade-in stagger-2">
-        Создаём<br>
-        <span class="gradient-text">интеллектуальные<br>решения</span>
+        SA-Agent<br>
+        <span class="gradient-text">AI-ассистент<br>для системного аналитика</span>
       </h1>
 
       <p class="fade-in stagger-3">
-        AstAgency — строим будущее на стыке искусственного интеллекта,
-        современных веб-технологий и продуктовой инженерии.
+        Превращает встречу, голосовое описание или сырой текст задачи в BRD, ТЗ,
+        вопросы и структуру дальнейшей работы. Сократите рутину системной аналитики с дней до часов.
       </p>
 
       <div class="hero-actions fade-in stagger-4">
-        <a href="#products" class="btn-primary">
-          Наши продукты
+        <a href="#contact" class="btn-primary">
+          Попробовать демо
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
-        <a href="#contact" class="btn-secondary">
-          Связаться
+        <a href="#workflow" class="btn-secondary">
+          Посмотреть, как это работает
         </a>
+      </div>
+
+      <div class="hero-meta fade-in stagger-5">
+        <div class="hero-stat">
+          <span class="hero-stat-label">Формат</span>
+          <strong>Desktop assistant для аналитической работы</strong>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-label">Результат</span>
+          <strong>BRD, ТЗ, вопросы и проектный контекст</strong>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-label">Статус</span>
+          <strong>Продукт в активной разработке</strong>
+        </div>
       </div>
     </div>
 
@@ -564,43 +717,116 @@
   </section>
 
   <!-- ========== PRODUCTS ========== -->
-  <section id="products" class="section">
+  <section id="product" class="section">
     <div class="container">
-      <div class="section-label fade-in">Продукты</div>
-      <h2 class="section-title fade-in stagger-1">Что мы создаём</h2>
+      <div class="section-label fade-in">О продукте</div>
+      <h2 class="section-title fade-in stagger-1">Что делает SA-Agent</h2>
       <p class="section-desc fade-in stagger-2">
-        Десктопный AI-помощник с собственной системой навыков, биллингом и поддержкой MCP.
+        SA-Agent — продукт AstAgency. Он помогает аналитику пройти типовой рабочий путь от сырого входящего контекста до рабочих документов и понятного следующего шага.
       </p>
 
       <div class="products-grid">
         <div class="product-card fade-in stagger-1">
           <div class="product-icon" style="background: rgba(0,212,255,0.1); color: var(--accent-1);">🤖</div>
           <h3>sa-agent</h3>
-          <p>AI-помощник для сотрудников бизнеса. Десктоп-клиент с MCP-поддержкой, собственной системой навыков и биллингом.</p>
-          <span class="product-tag">В разработке</span>
+          <p>Расшифровывает встречи, собирает контекст задачи, готовит BRD и ТЗ, выявляет противоречия и сохраняет проектный контекст для продолжения работы.</p>
+          <span class="product-tag">Ранний продукт / в разработке</span>
+        </div>
+        <div class="product-card fade-in stagger-2">
+          <div class="product-icon" style="background: rgba(124,58,237,0.14); color: var(--accent-2);">🧠</div>
+          <h3>Не просто чат с моделью</h3>
+          <p>Это рабочий инструмент с памятью, шаблонами, серверными возможностями и управляемым backend-controlled flow вместо одноразовых диалогов.</p>
+          <span class="product-tag">Desktop + server architecture</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== TECH STACK ========== -->
-  <section id="stack" class="section">
+  <section class="section">
     <div class="container">
-      <div class="section-label fade-in">Технологии</div>
-      <h2 class="section-title fade-in stagger-1">Стек</h2>
+      <div class="section-label fade-in">Для кого</div>
+      <h2 class="section-title fade-in stagger-1">Кому подходит продукт</h2>
       <p class="section-desc fade-in stagger-2">
-        Современный набор инструментов для надёжных и масштабируемых решений.
+        SA-Agent рассчитан на специалистов и команды, которым нужен более быстрый и предсказуемый процесс подготовки требований.
+      </p>
+
+      <div class="details-grid">
+        <div class="detail-card fade-in stagger-1">
+          <h3>Основные пользователи</h3>
+          <ul class="detail-list">
+            <li>Системные аналитики, которые тратят слишком много времени на BRD и ТЗ.</li>
+            <li>Лиды аналитиков, которым нужен более единый и предсказуемый результат команды.</li>
+            <li>Команды разработки, которые хотят меньше сырых требований и возвратов на уточнение.</li>
+          </ul>
+        </div>
+        <div class="detail-card fade-in stagger-2">
+          <h3>Корпоративный сценарий</h3>
+          <ul class="detail-list">
+            <li>Банки и корпоративные команды, которым нужен управляемый AI-инструмент с контролем доступа и лимитов.</li>
+            <li>Единый стандарт подготовки требований и хранения проектного контекста.</li>
+            <li>База для дальнейшей адаптации под защищённый контур.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="workflow" class="section">
+    <div class="container">
+      <div class="section-label fade-in">Workflow</div>
+      <h2 class="section-title fade-in stagger-1">Как это работает</h2>
+      <p class="section-desc fade-in stagger-2">
+        Пользователь видит результат и удобный workflow, а закрытая логика, шаблоны и слой навыков защищены на сервере.
+      </p>
+
+      <div class="workflow-grid">
+        <div class="workflow-step fade-in stagger-1">
+          <div class="workflow-step-number">1</div>
+          <h3>Вход в desktop client</h3>
+          <p>Пользователь открывает приложение и начинает работу в привычном desktop-сценарии.</p>
+        </div>
+        <div class="workflow-step fade-in stagger-2">
+          <div class="workflow-step-number">2</div>
+          <h3>Загрузка исходных данных</h3>
+          <p>Добавляет текст, расшифровку или аудио встречи для дальнейшей обработки.</p>
+        </div>
+        <div class="workflow-step fade-in stagger-3">
+          <div class="workflow-step-number">3</div>
+          <h3>Сбор контекста</h3>
+          <p>SA-Agent собирает контекст проекта, историю работы и память пользователя.</p>
+        </div>
+        <div class="workflow-step fade-in stagger-4">
+          <div class="workflow-step-number">4</div>
+          <h3>Серверные возможности</h3>
+          <p>Сервер формирует BRD, ТЗ, расшифровку, вопросы и структуру следующего шага.</p>
+        </div>
+        <div class="workflow-step fade-in stagger-5">
+          <div class="workflow-step-number">5</div>
+          <h3>Продолжение работы</h3>
+          <p>Результат сохраняется вместе с контекстом, чтобы можно было продолжить работу без потерь.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="advantages" class="section">
+    <div class="container">
+      <div class="section-label fade-in">Преимущества</div>
+      <h2 class="section-title fade-in stagger-1">Почему это не просто GPT-обёртка</h2>
+      <p class="section-desc fade-in stagger-2">
+        SA-Agent строится как полноценный рабочий инструмент для аналитики, а не как интерфейс поверх одиночного LLM-вызова.
       </p>
 
       <div class="stack-grid">
-        <div class="stack-item fade-in stagger-1">JavaScript / TypeScript</div>
-        <div class="stack-item fade-in stagger-1">Python</div>
-        <div class="stack-item fade-in stagger-2">Node.js</div>
-        <div class="stack-item fade-in stagger-2">React / Electron</div>
-        <div class="stack-item fade-in stagger-3">PostgreSQL</div>
-        <div class="stack-item fade-in stagger-3">Docker</div>
-        <div class="stack-item fade-in stagger-4">AI / LLM</div>
-        <div class="stack-item fade-in stagger-4">MCP Protocol</div>
+        <div class="stack-item fade-in stagger-1">Быстрее первая версия BRD и ТЗ</div>
+        <div class="stack-item fade-in stagger-1">Меньше ручной рутины после встреч</div>
+        <div class="stack-item fade-in stagger-2">Единый проектный контекст между сессиями</div>
+        <div class="stack-item fade-in stagger-2">Контроль лимитов, токенов и подписок на сервере</div>
+        <div class="stack-item fade-in stagger-3">Закрытые навыки и шаблоны как основа качества</div>
+        <div class="stack-item fade-in stagger-3">Backend-controlled flow для LLM и transcription</div>
+        <div class="stack-item fade-in stagger-4">Синхронизация памяти, проектов и доступов</div>
+        <div class="stack-item fade-in stagger-4">Desktop runtime с локальными действиями и контекстом</div>
+        <div class="stack-item fade-in stagger-5">Подходит и для индивидуальных аналитиков, и для команд</div>
       </div>
     </div>
   </section>
@@ -610,19 +836,24 @@
     <div class="container">
       <h2 class="fade-in stagger-1">Готовы к сотрудничеству?</h2>
       <p class="fade-in stagger-2">
-        Есть идея или проект? Расскажите нам — превратим идею в продукт.
+        Если вы системный аналитик, лид аналитиков или команда, которая хочет ускорить подготовку требований, SA-Agent помогает превратить хаотичный входящий контекст в рабочие документы и понятный следующий шаг.
       </p>
-      <a href="mailto:agency@ast-net.ru" class="btn-primary fade-in stagger-3">
-        agency@ast-net.ru
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-      </a>
+      <div class="hero-actions" style="justify-content: center;">
+        <a href="mailto:agency@ast-net.ru?subject=Ранний%20доступ%20к%20SA-Agent" class="btn-primary fade-in stagger-3">
+          Получить ранний доступ
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </a>
+        <a href="mailto:agency@ast-net.ru?subject=Запрос%20демо%20SA-Agent" class="btn-secondary fade-in stagger-4">
+          Запросить демо
+        </a>
+      </div>
     </div>
   </section>
 
   <!-- ========== FOOTER ========== -->
   <footer>
     <div class="container">
-      <p>© 2026 AstAgency. Все права защищены.</p>
+      <p>© 2026 AstAgency. SA-Agent находится в активной разработке.</p>
     </div>
   </footer>
 
